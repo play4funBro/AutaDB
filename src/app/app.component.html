@@ -1,0 +1,30 @@
+<section 
+  class="pojazd" 
+  *ngFor="let element of tab" 
+  [ngClass]="{'selected': element.css}">
+
+  <img 
+    [src]="element.Zdjecie" 
+    [style.transform]="'scale(' + (value[element.ID] / 100) + ')'"
+    style="transition: transform 0.3s;" />
+
+  <br>
+
+  <input 
+    type="range" 
+    min="40" 
+    max="100" 
+    [(ngModel)]="value[element.ID]" />
+
+  <p><strong>ID:</strong> {{element.ID}}</p>
+  <p><strong>Nazwa:</strong> {{element.Nazwa}}</p>
+  <p><strong>Ilość drzwi:</strong> {{element.IloscDrzwi}}</p>
+  <p><strong>Typ pojazdu:</strong> {{element.TypPojazdu}}</p>
+  <p><strong>Skrzynia biegów:</strong> {{element.SkrzyniaBiegow}}</p>
+  <p><strong>Klimatyzacja:</strong> {{element.Klimatyzacja}}</p>
+  <p><strong>Ilość wypożyczeń:</strong> {{element.IloscWypozyczen}}</p>
+
+  <label>
+    Wybierz <input type="checkbox" (change)="zmiana(element)">
+  </label>
+</section>
